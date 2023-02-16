@@ -1,0 +1,21 @@
+name: Build
+
+on:
+  push
+
+# Builds the native Android app with gradle.
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      # Uploads the build artifact to the workflow's artifacts.
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build
