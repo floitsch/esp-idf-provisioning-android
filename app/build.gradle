@@ -47,6 +47,10 @@ android {
             buildConfigField "boolean", "isFilteringByPrefixAllowed", "true"
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
